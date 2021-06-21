@@ -75,6 +75,9 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Added PATH paths
+export PATH="$HOME/dotfiles/scripts/":$PATH
+
 # aliases
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 
@@ -83,9 +86,10 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 export GPG_TTY=$(tty)
 
 # additional prompt
+# Requires: onefetch, pfetch
 if [ $(git rev-parse --is-inside-work-tree 2> /dev/null) ]
 then
-    onefetch
+    onefetch 2>/dev/null
 else
-    pfetch
+    pfetch 2>/dev/null
 fi
