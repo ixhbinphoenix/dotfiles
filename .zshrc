@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/phoenix/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -76,12 +76,20 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # Added PATH paths
-export PATH="$HOME/dotfiles/scripts/":$PATH
+export PATH="$HOME/dotfiles/scripts/":"$HOME/programs/gosumemory_linux_amd64/":$PATH
 
 # aliases
+# use bat instead of cat
+# ! Breaks normal cat
+alias cat="bat"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
+alias gosumemory="sudo gosumemory -wine -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
+# portable for obs-browser support
+# ! Breaks normal obs
+alias obs-studio="opwd=$PWD && cd $HOME/obs-studio-portable/bin/64bit/ && ./obs && cd $opwd"
 
 # vars
+# ? probably breaks nodejs installs
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 export GPG_TTY=$(tty)
 
