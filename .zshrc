@@ -92,6 +92,8 @@ alias obs-studio="opwd=$PWD && cd $HOME/obs-studio-portable/bin/64bit/ && ./obs 
 # ? probably breaks nodejs installs
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 export GPG_TTY=$(tty)
+# ! Breaks capacitor
+export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
 
 # additional prompt
 # Requires: onefetch, pfetch
