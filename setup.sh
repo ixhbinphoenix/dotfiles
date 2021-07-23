@@ -41,13 +41,13 @@ mv .zshrc .zshrc.predot 2>/dev/null
 # not quite sure how the actual installed and not cloned dir is named
 mv .oh-my-zsh .oh-my-zsh.predot 2>/dev/null
 mv .ohmyzsh .ohmyzsh.predot 2>/dev/null
-# mv .zsh_custom .zsh_custom.predot 2>/dev/null
+mv .zsh_custom .zsh_custom.predot 2>/dev/null
 mv .config/qtile .config/qtile.predot 2>/dev/null
 echo "Completed!"
 
 echo "Symlinking new dotfiles..."
 ln -s ./dotfiles/.zshrc .zshrc
 ln -s ./dotfiles/.oh-my-zsh .oh-my-zsh
-# ln -s ./dotfiles/.zsh_custom .zsh_custom
+ln -s ./dotfiles/.zsh_custom .zsh_custom
 ln -s ./dotfiles/qtile/ .config/qtile
 echo "Completed!"
