@@ -1,0 +1,114 @@
+ * {
+
+    // color variables
+    normal-background:      rgba(0,0,0,0.0);
+    window-background:      rgba(20, 87, 120,0.5);
+    primary-color:          rgba(34, 152, 211,1);
+    primary-text-color:     #ffffff;
+    
+    scrollbar-color:        rgba(30, 130, 179,0.4);
+    scrollbar-handle-color: rgba(34, 152, 211,1);
+
+    alert-color:            rgba(230, 0, 83,0.6);
+    active-color:           rgba(240, 67, 222,0.6);
+
+    select-color:           rgba(34, 152, 211,0.9);
+    select-active-color:    rgba(240, 67, 222,0.9);
+
+    // global settings
+    background-color :      @normal-background; // default i want no color
+    text-color :            @primary-text-color;  
+}
+
+window {
+    transparency:       "real"; 
+    background-color :  @normal-background;
+    anchor:             east;
+    location:           east;
+    width:              20%;
+    height:             100%;
+    background-color:   @window-background;
+}
+
+mainbox {
+    background-color :  @window-background;
+    padding:    20px;
+    border:     0;
+    children:   [ entry, listview, mode-switcher ];
+}
+
+entry {
+    expand:         false; 
+    padding:        10px;
+    border:         3px;
+    border-color:   @primary-color;
+    border-radius:  5px; 
+}
+
+listview {
+    cycle :     true;
+    scrollbar:  true;
+    padding:    5px; 
+    spacing:    5px;
+}
+
+scrollbar {
+    background-color: @scrollbar-color;
+    handle-width:   15px ;
+    handle-color: @scrollbar-handle-color;
+}
+
+element {
+    background-color:   @normal-background;
+    padding:            8px;
+    border-radius:      5px;
+}
+
+element-icon {
+    size:   20px;
+}
+
+element-text {
+    background-color: @normal-background;
+    padding: 0px 10px;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+}
+
+element.normal.urgent {
+    background-color: @alert-color;
+}
+
+element.normal.active {
+    background-color: @active-color;
+}
+
+element.selected.normal {
+    background-color: @select-color;
+}
+
+element.selected.urgent {
+    background-color: @alert-color;
+}
+
+element.selected.active {
+    background-color: @select-active-color;
+}
+
+mode-switcher {
+    spacing: 10px;
+}
+
+button {
+    border-color: @primary-color;
+    border-radius: 5px;
+    border: 3px;
+    padding: 10px;
+    horizontal-align: 0.5;
+    
+}
+button.selected {
+    background-color: @select-color;
+}

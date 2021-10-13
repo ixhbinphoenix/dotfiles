@@ -87,6 +87,7 @@ export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/programs/gosume
 alias cat="bat"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias gosumemory="sudo gosumemory -wine -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
+alias neofetch="/usr/bin/neofetch --backend kitty --source '/home/phoenix/Pictures/Nyarch_Transparent_BG.png'"
 # portable for obs-browser support
 # ! Breaks normal obs
 alias obs-studio="opwd=$PWD && cd $HOME/obs-studio-portable/bin/64bit/ && ./obs && cd $opwd"
@@ -99,10 +100,10 @@ export GPG_TTY=$(tty)
 export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
 
 # additional prompt
-# Requires: onefetch, pfetch
+# Requires: onefetch, uwufetch
 if [ $(git rev-parse --is-inside-work-tree 2> /dev/null) ]
 then
     onefetch 2>/dev/null
 else
-    pfetch 2>/dev/null
+    uwufetch -i 2>/dev/null
 fi

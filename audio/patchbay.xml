@@ -1,64 +1,64 @@
 <!DOCTYPE patchbay>
 <patchbay name="patchbay" version="0.9.3">
  <output-sockets>
-  <socket client="HyperX\ 7\.1\ Audio\ Analog\ Stereo" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="AG06\/AG03\ Analog\ Stereo\ Monitor" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo" type="jack-audio">
    <plug>capture_FL</plug>
    <plug>capture_FR</plug>
   </socket>
-  <socket client="mic\ Audio\/Source\/Virtual\ sink\ Monitor" name="mic\ Audio\/Source\/Virtual\ sink\ Monitor 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="mic\ Audio\/Source\/Virtual\ sink\ Monitor" name="mic\ Audio\/Source\/Virtual\ sink\ Monitor 1" type="jack-audio">
    <plug>capture_FL</plug>
    <plug>capture_FR</plug>
   </socket>
-  <socket client="WEBRTC\ VoiceEngine" name="WEBRTC\ VoiceEngine 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="WEBRTC\ VoiceEngine" name="WEBRTC\ VoiceEngine 1" type="jack-audio">
    <plug>output_FL</plug>
    <plug>output_FR</plug>
   </socket>
-  <socket client="dc\ Audio\/Duplex\ sink\ Monitor" name="dc\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="dc\ Audio\/Duplex\ sink\ Monitor" name="dc\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio">
    <plug>capture_FL</plug>
    <plug>capture_FR</plug>
   </socket>
-  <socket client="spotify" name="spotify 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="spotify" name="spotify 1" type="jack-audio">
    <plug>output_FR</plug>
   </socket>
-  <socket client="music\ Audio\/Duplex\ sink\ Monitor" name="music\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="music\ Audio\/Duplex\ sink\ Monitor" name="music\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio">
    <plug>capture_FL</plug>
    <plug>capture_FR</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket client="mic\ Audio\/Source\/Virtual\ sink" name="mic\ Audio\/Source\/Virtual\ sink 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="mic\ Audio\/Source\/Virtual\ sink" name="mic\ Audio\/Source\/Virtual\ sink 1" type="jack-audio">
    <plug>input_FL</plug>
    <plug>input_FR</plug>
   </socket>
-  <socket client="WEBRTC\ VoiceEngine" name="WEBRTC\ VoiceEngine 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="WEBRTC\ VoiceEngine" name="WEBRTC\ VoiceEngine 1" type="jack-audio">
    <plug>input_FL</plug>
    <plug>input_FR</plug>
   </socket>
-  <socket client="dc\ Audio\/Duplex\ sink" name="dc\ Audio\/Duplex\ sink 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="dc\ Audio\/Duplex\ sink" name="dc\ Audio\/Duplex\ sink 1" type="jack-audio">
    <plug>playback_FL</plug>
    <plug>playback_FR</plug>
   </socket>
-  <socket client="HyperX\ 7\.1\ Audio\ Analog\ Stereo" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="HyperX\ 7\.1\ Audio\ Analog\ Stereo" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo 1" type="jack-audio">
    <plug>playback_FL</plug>
    <plug>playback_FR</plug>
   </socket>
-  <socket client="music\ Audio\/Duplex\ sink" name="music\ Audio\/Duplex\ sink 1" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="music\ Audio\/Duplex\ sink" name="music\ Audio\/Duplex\ sink 1" type="jack-audio">
    <plug>playback_FR</plug>
    <plug>playback_FL</plug>
   </socket>
-  <socket client="HyperX\ 7\.1\ Audio\ Analog\ Stereo" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo 2" type="jack-audio" exclusive="off">
+  <socket exclusive="off" client="HyperX\ 7\.1\ Audio\ Analog\ Stereo" name="HyperX\ 7\.1\ Audio\ Analog\ Stereo 2" type="jack-audio">
    <plug>playback_FL</plug>
    <plug>playback_FR</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable output="HyperX\ 7\.1\ Audio\ Analog\ Stereo" type="jack-audio" input="mic\ Audio\/Source\/Virtual\ sink 1"/>
-  <cable output="mic\ Audio\/Source\/Virtual\ sink\ Monitor 1" type="jack-audio" input="WEBRTC\ VoiceEngine 1"/>
-  <cable output="WEBRTC\ VoiceEngine 1" type="jack-audio" input="dc\ Audio\/Duplex\ sink 1"/>
-  <cable output="dc\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio" input="HyperX\ 7\.1\ Audio\ Analog\ Stereo 1"/>
-  <cable output="spotify 1" type="jack-audio" input="music\ Audio\/Duplex\ sink 1"/>
-  <cable output="music\ Audio\/Duplex\ sink\ Monitor 1" type="jack-audio" input="HyperX\ 7\.1\ Audio\ Analog\ Stereo 2"/>
+  <cable input="mic\ Audio\/Source\/Virtual\ sink 1" type="jack-audio" output="HyperX\ 7\.1\ Audio\ Analog\ Stereo"/>
+  <cable input="WEBRTC\ VoiceEngine 1" type="jack-audio" output="mic\ Audio\/Source\/Virtual\ sink\ Monitor 1"/>
+  <cable input="dc\ Audio\/Duplex\ sink 1" type="jack-audio" output="WEBRTC\ VoiceEngine 1"/>
+  <cable input="HyperX\ 7\.1\ Audio\ Analog\ Stereo 1" type="jack-audio" output="dc\ Audio\/Duplex\ sink\ Monitor 1"/>
+  <cable input="music\ Audio\/Duplex\ sink 1" type="jack-audio" output="spotify 1"/>
+  <cable input="HyperX\ 7\.1\ Audio\ Analog\ Stereo 2" type="jack-audio" output="music\ Audio\/Duplex\ sink\ Monitor 1"/>
  </cables>
 </patchbay>
 

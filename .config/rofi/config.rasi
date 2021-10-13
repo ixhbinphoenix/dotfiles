@@ -1,0 +1,22 @@
+configuration {
+    modi: "run,window,ssh";
+    font: "DaddyTimeMono Nerd Font 12";
+    theme: "nyarch";
+    show-icons: true;
+    sidebar-mode: true;
+    terminal: "kitty";
+    sort: false;
+    lines: 2;
+    parse-hosts: true;
+    parse-known-hosts: false;
+    scroll-method: 1;
+    window-format: "{c}     {w}";
+    kb-mode-next: "Tab";
+    kb-row-tab: ""; 
+    kb-mode-previous: "Shift+Tab";
+    kb-row-up: "Up";        
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+}
