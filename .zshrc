@@ -107,3 +107,6 @@ then
 else
     uwufetch -i 2>/dev/null
 fi
+
+export PNPM_HOME="/home/phoenix/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"

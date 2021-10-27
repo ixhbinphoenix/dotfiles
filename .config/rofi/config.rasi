@@ -1,14 +1,12 @@
 configuration {
-    modi: "run,window,ssh";
+    modi: "drun,window";
     font: "DaddyTimeMono Nerd Font 12";
     theme: "nyarch";
     show-icons: true;
-    sidebar-mode: true;
+    sidebar-mode: false;
     terminal: "kitty";
     sort: false;
     lines: 2;
-    parse-hosts: true;
-    parse-known-hosts: false;
     scroll-method: 1;
     window-format: "{c}     {w}";
     kb-mode-next: "Tab";

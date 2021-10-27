@@ -18,6 +18,9 @@ mv .zsh_custom .zsh_custom.predot 2>/dev/null
 mv .alacritty.yml .alacritty.yml.predot 2>/dev/null
 mv .actrc .actrc.predot 2>/dev/null
 mv .config/kitty .config/kitty.predot 2>/dev/null
+mv .config/i3 .config/i3.predot 2>/dev/null
+mv .config/rofi .config/rofi.predot 2>/dev/null
+mv .config/picom.conf .config/picom.conf.predot 2>/dev/null
 echo "Completed!"
 
 echo "Symlinking new dotfiles..."
@@ -27,4 +30,7 @@ ln -s ~/dotfiles/.zsh_custom ~/.zsh_custom
 ln -s ~/dotfiles/.alacritty.yml ~/.alacritty.yml
 ln -s ~/dotfiles/.actrc ~/.actrc
 ln -s ~/dotfiles/.config/kitty ~/.config/kitty
+ln -s ~/dotfiles/.config/rofi ~/.config/rofi
+ln -s ~/dotfiles/.config/i3 ~/.config/i3
+ln -s ~/dotfiles/.config/picom.conf ~/.config/picom.conf
 echo "Completed!"
