@@ -20,6 +20,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id premid
 exec_always --no-startup-id /home/phoenix/.config/polybar/blocks/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -132,7 +133,7 @@ bindsym $mod+r mode "resize"
 #
 
 gaps inner 14
-gaps outer -2
+gaps outer 0
 
 #
 # Workspaces

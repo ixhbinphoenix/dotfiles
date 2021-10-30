@@ -87,7 +87,7 @@ export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/programs/gosume
 alias cat="bat"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias gosumemory="sudo gosumemory -wine -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
-alias neofetch="/usr/bin/neofetch --backend kitty --source '/home/phoenix/Pictures/Nyarch_Transparent_BG.png'"
+alias neofetch="/usr/bin/neofetch --de-version on --gtk3 off --gtk2 off --backend kitty --source '/home/phoenix/Pictures/Nyarch_Transparent_BG.png'"
 # portable for obs-browser support
 # ! Breaks normal obs
 alias obs-studio="opwd=$PWD && cd $HOME/obs-studio-portable/bin/64bit/ && ./obs && cd $opwd"
