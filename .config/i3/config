@@ -6,23 +6,23 @@ set $screen-left DVI-D-0
 set $screen-center HDMI-A-0
 set $screen-virtual DisplayPort-0
 
+set $home /home/phoenix
+
 set $mod Mod1
 
 font pango:Source Code Pro 8
 
 # Window design
 for_window [class=".*"] border pixel 4
-border_radius 8
+# border_radius 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom -b
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id premid
-exec_always --no-startup-id /home/phoenix/.config/polybar/blocks/launch.sh
+exec_always --no-startup-id $home/.config/polybar/blocks/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -39,13 +39,16 @@ bindsym $mod+Return exec kitty
 # screenshot
 bindsym $mod+Shift+s exec xfce4-screenshooter -r
 
+# Restart dunst (for config changes)
+bindsym $mod+Shift+d exec --no-startup-id bash $home/.config/dunst/reload.sh
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+Escape exec --no-startup-id rofi run -show drun
 bindsym $mod+Tab exec --no-startup-id rofi run -show window
-bindsym $mod+F4 exec --no-startup-id /home/phoenix/.config/polybar/blocks/scripts/powermenu.sh
+bindsym $mod+F4 exec --no-startup-id $home/.config/polybar/blocks/scripts/powermenu.sh
 
 # change focus
 bindsym $mod+j focus left
@@ -53,23 +56,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -116,12 +107,6 @@ mode "resize" {
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
