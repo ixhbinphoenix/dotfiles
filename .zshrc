@@ -79,20 +79,18 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # Added PATH paths
-export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/programs/gosumemory_linux_amd64/":$PATH
+export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin":"$HOME/programs/gosumemory_linux_amd64/":$PATH
 
 # aliases
 # use bat instead of cat
 # ! Breaks normal cat
 alias cat="bat"
 alias nvim="$HOME/.local/bin/lvim"
+alias java11="/mnt/hdd/programs/jdk-11.0.14.1+1/bin/java"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias java17="/mnt/hdd/programs/jdk-17.0.1+12/bin/java"
 alias gosumemory="sudo gosumemory -wine -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
 alias neofetch="/usr/bin/neofetch --de-version on --gtk3 off --gtk2 off --backend kitty --source '/home/phoenix/Pictures/Nyarch_Transparent_BG.png'"
-# portable for obs-browser support
-# ! Breaks normal obs
-alias obs-studio="opwd=$PWD && cd $HOME/obs-studio-portable/bin/64bit/ && ./obs && cd $opwd"
 
 # vars
 # ? probably breaks nodejs installs
@@ -112,3 +110,7 @@ fi
 
 export PNPM_HOME="/home/phoenix/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
