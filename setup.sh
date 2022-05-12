@@ -34,7 +34,7 @@ mv .config/rofi .config/rofi.predot 2>/dev/null
 mv .config/picom.conf .config/picom.conf.predot 2>/dev/null
 
 # other .config
-mv .config/lvim .config/lvim.predot 2>/dev/null
+mv .config/nvim .config/nvim.predot 2>/dev/null
 
 #
 # /etc/
@@ -64,7 +64,7 @@ ln -s ~/dotfiles/.config/dunst ~/.config/dunst
 ln -s ~/dotfiles/.config/picom.conf ~/.config/picom.conf
 
 # other .config
-ln -s ~/dotfiles/.config/lvim ~/.config/lvim
+ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 
 # /etc/
 

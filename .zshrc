@@ -85,7 +85,6 @@ export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin":"$H
 # use bat instead of cat
 # ! Breaks normal cat
 alias cat="bat"
-alias nvim="$HOME/.local/bin/lvim"
 alias java11="/mnt/hdd/programs/jdk-11.0.14.1+1/bin/java"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias java17="/mnt/hdd/programs/jdk-17.0.1+12/bin/java"
