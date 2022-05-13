@@ -1,0 +1,9 @@
+{
+	"languageserver": {
+		"kotlin": {
+			"command": "~/lsp/server/bin/kotlin-language-server",
+			"filetypes": ["kotlin"]
+		}
+  },
+  "Lua.telemetry.enable": false
+}

@@ -1,0 +1,6 @@
+{
+  "Lua.workspace.library": [
+    "/home/phoenix/.config/nvim/lua",
+    "/usr/share/nvim/runtime/lua"
+  ]
+}

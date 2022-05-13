@@ -11,6 +11,23 @@ return require('packer').startup(function()
 	use 'sheerun/vim-polyglot'
 	use { 'neoclide/coc.nvim', branch = 'release' }
 	use 'kyazdani42/nvim-web-devicons'
+	use 'EdenEast/nightfox.nvim'
+	use {
+		'nanozuki/tabby.nvim',
+		config = function ()
+			require('tabby').setup({
+					tabline = require("tabby.presets").active_tab_with_wins
+			})
+		end
+	}
 	use 'feline-nvim/feline.nvim'
+	use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+	use {
+		's1n7ax/nvim-terminal',
+		config = function ()
+			vim.o.hidden = true
+			require('nvim-terminal').setup()
+		end
+	}
 	use 'andweeb/presence.nvim'
 end)
