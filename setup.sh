@@ -13,9 +13,6 @@ echo "Backing up old dotfiles..."
 # Zsh
 
 mv .zshrc .zshrc.predot 2>/dev/null
-mv .oh-my-zsh .oh-my-zsh.predot 2>/dev/null
-mv .ohmyzsh .ohmyzsh.predot 2>/dev/null
-mv .zsh_custom .zsh_custom.predot 2>/dev/null
 
 # Other ~ files
 
@@ -47,8 +44,6 @@ echo "Symlinking new dotfiles..."
 
 # Zsh
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
-ln -s ~/dotfiles/.zsh_custom ~/.zsh_custom
 
 # Other ~ files
 ln -s ~/dotfiles/.alacritty.yml ~/.alacritty.yml
