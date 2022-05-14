@@ -38,7 +38,7 @@ export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studi
 zinit ice depth"1"
 zinit light romkatv/powerlevel10k
 
-zinit ice blof
+zinit ice blockf
 zinit light zsh-users/zsh-completions
 
 zinit light zsh-users/zsh-syntax-highlighting
