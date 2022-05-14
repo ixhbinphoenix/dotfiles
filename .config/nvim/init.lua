@@ -1,5 +1,6 @@
 local home = os.getenv('HOME')
 
+vim.opt.number = true
 vim.opt.tgc = true
 vim.opt.hidden = true
 vim.opt.encoding = "utf-8"
@@ -95,7 +96,7 @@ require('nvim-tree').setup({
       resize_window = true,
       window_picker = {
         enable = true,
-        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         exclude = {
           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
           buftype = { "nofile", "terminal", "help" },
@@ -120,3 +121,4 @@ require('nvim-tree').setup({
     },
   },
 })
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<cr>", { noremap = true })
