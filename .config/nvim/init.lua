@@ -1,5 +1,17 @@
 local home = os.getenv('HOME')
 
+function map(mode, shortcut, command)
+  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true})
+end
+
+function nmap(shortcut, command)
+  map('n', shortcut, command)
+end
+
+function imap(shortcut, command)
+  map('i', shortcut, command)
+end
+
 vim.opt.number = true
 vim.opt.tgc = true
 vim.opt.hidden = true
@@ -121,4 +133,20 @@ require('nvim-tree').setup({
     },
   },
 })
-vim.api.nvim_set_keymap("n", "<C-s>", ":w<cr>", { noremap = true })
+nmap("<C-s>", ":w<cr>")
+vim.cmd([[
+if exists('*complete_info')
+  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+]])
+vim.cmd([[
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+]])

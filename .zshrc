@@ -54,6 +54,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
 ### Aliases
+alias ls="ls --color=auto -la"
 alias cat="bat"
 alias java11="/mnt/hdd/programs/jdk-11.0.14.1+1/bin/java"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
@@ -63,3 +64,8 @@ alias neofetch="/usr/bin/neofetch --de-version on --gtk3 off --gtk2 off --backen
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/home/phoenix/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
