@@ -50,8 +50,14 @@ zinit light romkatv/powerlevel10k
 zinit ice blockf
 zinit light zsh-users/zsh-completions
 
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
+
+autoload -Uz compinit
+compinit
+
+zinit cdreplay -q
+
+zinit light zsh-users/zsh-syntax-highlighting
 
 ### Aliases
 alias ls="ls --color=auto -la"

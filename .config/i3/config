@@ -17,7 +17,6 @@ for_window [class=".*"] border pixel 4
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom -b
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
@@ -39,7 +38,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 # screenshot
-bindsym $mod+Shift+s exec xfce4-screenshooter -r
+# Get this from https://gist.github.com/ixhbinphoenix/be9d8cbca952776dc3c6b99da974f526
+bindsym $mod+Shift+s exec $home/flameshot-wrapper
+
+bindsym $mod+Shift+f exec $home/flameshot-wrapper screen
 
 # Restart dunst (for config changes)
 bindsym $mod+Shift+d exec --no-startup-id bash $home/.config/dunst/reload.sh
