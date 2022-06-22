@@ -25,6 +25,8 @@ mv .actrc .actrc.predot 2>/dev/null
 
 # rice
 mv .config/kitty .config/kitty.predot 2>/dev/null
+mv .config/sway .config/sway.predot 2>/dev/null
+mv .config/waybar .config/waybar.predot 2>/dev/null
 mv .config/i3 .config/i3.predot 2>/dev/null
 mv .config/dunst .config/dunst.predot 2>/dev/null
 mv .config/rofi .config/rofi.predot 2>/dev/null
@@ -55,6 +57,8 @@ ln -s ~/dotfiles/.actrc ~/.actrc
 ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ln -s ~/dotfiles/.config/rofi ~/.config/rofi
 ln -s ~/dotfiles/.config/i3 ~/.config/i3
+ln -s ~/dotfiles/.config/sway ~/.config/sway
+ln -s ~/dotfiles/.config/waybar ~/.config/waybar
 ln -s ~/dotfiles/.config/dunst ~/.config/dunst
 ln -s ~/dotfiles/.config/picom.conf ~/.config/picom.conf
 

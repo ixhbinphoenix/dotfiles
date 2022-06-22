@@ -2,6 +2,8 @@
 
 killall dunst
 
+swaymsg reload
+
 notify-send "1" https://duckduckgo.com
 notify-send "2"
 notify-send "3"

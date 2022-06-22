@@ -1,0 +1,47 @@
+{
+	"layer": "top",
+	"position": "top",
+	// "height": 30,
+	"spacing": 4,
+	"modules-left": ["sway/workspaces"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["tray", "network", "clock"],
+	"exclusive": true,
+	"sway/window": {
+		"format": "{}",
+		"max-length": "100",
+		"tooltip": false,
+		"all-outputs": true,
+		"rewrite": {
+			"LibreWolf": "",
+			"(.*) — LibreWolf": " — $1",
+			"nvim": ""
+		}
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "<span color=\"#2FA2C4\"></span>",
+			"2": "<span color=\"#2FA2C4\"></span>",
+			"3": "<span color=\"#2FA2C4\"></span>",
+			"4": "<span color=\"#2FA2C4\"></span>"
+		}
+	},
+	"network": {
+		"format-wifi": " {essid}",
+		"format-ethernet": " {ipaddr}/{cidr}",
+		"format-linked": " (No IP)",
+		"format-disconnected": "",
+		"family": "ipv4",
+		"tooltip": false
+	},
+	"clock": {
+		"format": " {:%H:%M}",
+		"tooltip-format": "{:%H:%M %d %B %Y}"
+	},
+	"tray": {
+		"spacing": "5"
+	}
+}
