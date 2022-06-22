@@ -2,8 +2,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $screen-left HDMI-A-0
+set $screen-left DisplayPort-1
 set $screen-center DisplayPort-2
+set $screen-right HDMI-A-0
 
 set $home /home/phoenix
 
@@ -176,9 +177,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ## Left
 # Browser
 workspace $ws2 output $screen-left
-# Discord
-workspace $ws4 output $screen-left
 
 ## Center
 workspace $ws1 output $screen-center
-workspace $ws3 output $screen-center
+workspace $ws4 output $screen-center
+
+## Right
+workspace $ws3 output $screen-right
