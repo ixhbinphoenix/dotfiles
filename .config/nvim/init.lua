@@ -150,3 +150,4 @@ inoremap <silent><expr> <Tab>
   \ <SID>check_back_space() ? "\<Tab>" :
   \ coc#refresh()
 ]])
+nmap(".", ":call CocAction('doHover')<cr>")

@@ -39,7 +39,8 @@ zinit light-mode for \
 
 ### Important globals
 export GPG_TTY=${tty}
-export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":$PATH
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":"$WASMTIME_HOME/bin":$PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
 export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
 

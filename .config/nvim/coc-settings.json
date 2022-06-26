@@ -5,5 +5,9 @@
       "filetypes": ["kotlin"]
     }
   },
-  "Lua.telemetry.enable": false
+  "Lua.telemetry.enable": false,
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.server.extraEnv": {
+    "RUSTUP_TOOLCHAIN": "nightly"
+  }
 }
