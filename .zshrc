@@ -68,6 +68,7 @@ alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias java17="/mnt/hdd/programs/jdk-17.0.1+12/bin/java"
 alias gosumemory="sudo gosumemory -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
 alias neofetch="/usr/bin/neofetch --de-version on --gtk3 off --gtk2 off --backend kitty --source '/home/phoenix/Picture/Nyarch_Transparent_BG.png'"
+alias unnamed-sdvx-clone="/opt/unnamed-sdvx-clone/usc-game"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
