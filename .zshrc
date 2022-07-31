@@ -59,6 +59,7 @@ compinit
 zinit cdreplay -q
 
 zinit light zsh-users/zsh-syntax-highlighting
+zinit snippet 'https://github.com/catppuccin/zsh-syntax-highlighting/blob/main/catppuccin-zsh-syntax-highlighting.zsh'
 
 ### Aliases
 alias ls="ls --color=auto -la"

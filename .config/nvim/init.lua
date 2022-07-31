@@ -1,3 +1,4 @@
+require('neovide')
 local home = os.getenv('HOME')
 
 function map(mode, shortcut, command)
