@@ -11,7 +11,15 @@ return require('packer').startup(function()
 	use 'sheerun/vim-polyglot'
 	use { 'neoclide/coc.nvim', branch = 'release' }
 	use 'kyazdani42/nvim-web-devicons'
-	use 'EdenEast/nightfox.nvim'
+	use { 
+		'catppuccin/nvim',
+		as = 'catppuccin',
+		config = function ()
+			vim.g.catppuccin_flavour = "mocha"
+			require('catppuccin').setup()
+			vim.cmd("colorscheme catppuccin")
+		end
+	}
 	use {
 		'nanozuki/tabby.nvim',
 		config = function ()

@@ -27,6 +27,7 @@ for_window [class=".*"] border pixel 4
 # border_radius 8
 
 for_window [title="Picture-in-Picture"] floating enable
+for_window [title="Apex Legends"] fullscreen enable
 #screenshot fix
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 

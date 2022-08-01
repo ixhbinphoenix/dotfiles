@@ -19,7 +19,6 @@ vim.opt.hidden = true
 vim.opt.encoding = "utf-8"
 vim.g.node_host_prog = '/usr/bin/neovim-node-host'
 require('plugins')
-vim.cmd("colorscheme nordfox")
 require('feline').setup()
 require('nvim-tree').setup({
   auto_reload_on_write = true,
@@ -150,5 +149,7 @@ inoremap <silent><expr> <Tab>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<Tab>" :
   \ coc#refresh()
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 ]])
 nmap(".", ":call CocAction('doHover')<cr>")
