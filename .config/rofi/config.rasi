@@ -8,7 +8,6 @@ configuration {
     lines: 2;
     scroll-method: 1;
     window-format: "{c}     {w}";
-    kb-mode-next: "Tab";
     kb-row-tab: ""; 
     kb-mode-previous: "Shift+Tab";
     kb-row-up: "Up";        

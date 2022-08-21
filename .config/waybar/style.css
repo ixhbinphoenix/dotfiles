@@ -1,6 +1,6 @@
 
-@define-color bg #2E3440;
-@define-color light #D8DEE9;
+@define-color bg #313244;
+@define-color light #cdd6f4;
 
 * {
 	border: none;
@@ -25,6 +25,6 @@
 }
 
 #workspaces button.focused {
-	background: #415EBF;
+	background: #585b70;
 	color: @light;
 }
