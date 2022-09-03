@@ -69,7 +69,6 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+Escape exec --no-startup-id rofi run -show drun
-bindsym $mod+Tab exec --no-startup-id rofi run -show window
 bindsym $mod+F4 exec --no-startup-id $home/.config/polybar/blocks/scripts/powermenu.sh
 
 # change focus

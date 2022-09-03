@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun,window";
+    modi: "drun";
     font: "DaddyTimeMono Nerd Font 12";
     show-icons: true;
     sidebar-mode: false;
