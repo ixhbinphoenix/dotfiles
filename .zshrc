@@ -43,6 +43,8 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":"$WASMTIME_HOME/bin":$PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
 export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
+# opam is very weird. This is most probably very insecure
+eval $(opam env)
 
 ### Zinit plugins
 zinit ice depth"1"
@@ -68,7 +70,6 @@ alias java11="/mnt/hdd/programs/jdk-11.0.14.1+1/bin/java"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
 alias java17="/mnt/hdd/programs/jdk-17.0.1+12/bin/java"
 alias gosumemory="sudo gosumemory -path /mnt/hdd/games/osu/drive_c/osu/Songs/"
-alias neofetch="/usr/bin/neofetch --de-version on --gtk3 off --gtk2 off --backend kitty --source '/home/phoenix/Picture/Nyarch_Transparent_BG.png'"
 alias unnamed-sdvx-clone="/opt/unnamed-sdvx-clone/usc-game"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
