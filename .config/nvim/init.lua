@@ -140,14 +140,14 @@ if exists('*complete_info')
 endif
 ]])
 vim.cmd([[
-function! s:check_back_space() abort
+function! Check_Backspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~ '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<Tab>" :
+  \ pumvisible() ? coc#pum#next(1) :
+  \ Check_Backspace() ? "\<Tab>" :
   \ coc#refresh()
 
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
