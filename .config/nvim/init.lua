@@ -1,15 +1,16 @@
 require('neovide')
-local home = os.getenv('HOME')
+local opts = { noremap = true, silent = true }
 
-function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true})
+local function map(mode, shortcut, command)
+  vim.api.nvim_set_keymap(mode, shortcut, command, opts)
 end
 
-function nmap(shortcut, command)
+local function nmap(shortcut, command)
   map('n', shortcut, command)
 end
 
-function imap(shortcut, command)
+---@diagnostic disable-next-line: unused-function, unused-local
+local function imap(shortcut, command)
   map('i', shortcut, command)
 end
 
@@ -17,8 +18,92 @@ vim.opt.number = true
 vim.opt.tgc = true
 vim.opt.hidden = true
 vim.opt.encoding = "utf-8"
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 vim.g.node_host_prog = '/usr/bin/neovim-node-host'
+
+
+nmap("<C-s>", ":w<cr>")
 require('plugins')
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("null-ls").setup()
+require("mason-null-ls").setup()
+
+local on_attach = function(client, bufnr)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+end
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lspconfig = require('lspconfig')
+
+local servers = { 'sumneko_lua', 'rust_analyzer', 'tsserver', 'astro', 'cssls', 'gradle_ls', 'html', 'jsonls', 'kotlin_language_server', 'volar', 'marksman', 'bashls' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+end
+local luasnip = require 'luasnip'
+
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  completion = {
+    autocomplete = {
+      cmp.TriggerEvent.TextChanged,
+    },
+    completeopt = "menuone,noinsert,noselect",
+    keyword_length = 1
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm {
+      select = true,
+    },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's'}),
+    ['<S-Tab>'] = cmp.mapping(function (fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's'})
+  }),
+  sources = cmp.config.sources{
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }
+}
+
 require('feline').setup()
 require('nvim-tree').setup({
   auto_reload_on_write = true,
@@ -34,7 +119,6 @@ require('nvim-tree').setup({
   update_cwd = true,
   view = {
     width = 40,
-    height = 30,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
@@ -133,23 +217,8 @@ require('nvim-tree').setup({
     },
   },
 })
-nmap("<C-s>", ":w<cr>")
-vim.cmd([[
-if exists('*complete_info')
-  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-]])
-vim.cmd([[
-function! Check_Backspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-  \ pumvisible() ? coc#pum#next(1) :
-  \ Check_Backspace() ? "\<Tab>" :
-  \ coc#refresh()
-
-inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
-]])
-nmap(".", ":call CocAction('doHover')<cr>")
+require'nvim-treesitter.configs'.setup {
+	indent = {
+		enable = false,
+	}
+}

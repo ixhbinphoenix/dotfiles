@@ -4,6 +4,7 @@ configuration {
     show-icons: true;
     sidebar-mode: false;
     terminal: "kitty";
+    auto-select: false;
     sort: false;
     lines: 2;
     scroll-method: 1;
