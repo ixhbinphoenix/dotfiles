@@ -25,6 +25,8 @@ vim.opt.expandtab = true
 
 vim.g.node_host_prog = '/usr/bin/neovim-node-host'
 
+vim.g.astro_typescript = 'enable'
+
 
 nmap("<C-s>", ":w<cr>")
 require('plugins')

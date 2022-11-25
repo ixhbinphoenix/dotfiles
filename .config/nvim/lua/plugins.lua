@@ -21,6 +21,7 @@ return require('packer').startup(function()
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip'
   }
+  use 'wuelnerdotexe/vim-astro'
   use 'kyazdani42/nvim-web-devicons'
   use {
     'catppuccin/nvim',
