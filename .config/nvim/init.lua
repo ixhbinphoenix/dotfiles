@@ -51,7 +51,17 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
-local servers = { 'sumneko_lua', 'rust_analyzer', 'tsserver', 'astro', 'cssls', 'gradle_ls', 'html', 'jsonls', 'kotlin_language_server', 'volar', 'marksman', 'bashls' }
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.haxe = {
+  install_info = {
+    url = "https://github.com/vantreeseba/tree-sitter-haxe",
+    files = {"src/parser.c"},
+    branch = "main",
+  },
+  filetype = "haxe",
+}
+
+local servers = { 'sumneko_lua', 'zls', 'vls', 'haxe_language_server', 'rust_analyzer', 'tsserver', 'astro', 'cssls', 'gradle_ls', 'html', 'jsonls', 'kotlin_language_server', 'volar', 'marksman', 'bashls', 'asm_lsp' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -220,6 +230,9 @@ require('nvim-tree').setup({
   },
 })
 require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
 	indent = {
 		enable = false,
 	}

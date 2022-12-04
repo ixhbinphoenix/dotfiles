@@ -1,6 +1,18 @@
 -- Load this using require('plugins')
 
 return require('packer').startup(function()
+  use {
+    'nathom/filetype.nvim',
+    config = function ()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            hx = "haxe",
+          }
+        },
+      })
+    end
+  }
   use 'wbthomason/packer.nvim'
   use {
     'lewis6991/gitsigns.nvim',
