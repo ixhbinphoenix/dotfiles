@@ -1,0 +1,13 @@
+show=drun
+term=kitty
+monitor=DP-1
+
+prompt=
+
+allow_images=true
+hide_scroll=true
+no_actions=true
+
+width=15%
+height=30%
+orientation=vertical

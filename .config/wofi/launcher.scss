@@ -1,0 +1,21 @@
+@use './colors';
+
+window {
+  @include colors.baseWindow;
+}
+
+#input {
+  @include colors.baseInput;
+}
+
+#entry {
+  &:selected {
+    background-color: colors.$accent-color;
+  }
+  background-color: colors.$bg-secondary;
+  border-radius: 0;
+}
+
+#img {
+  margin-right: 0.8rem;
+}

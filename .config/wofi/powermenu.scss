@@ -1,0 +1,21 @@
+@use 'colors';
+
+window {
+  @include colors.baseWindow;
+}
+
+#input {
+  @include colors.baseInput;
+}
+
+#entry {
+  &:selected {
+    background-color: colors.$accent-color;
+  }
+
+  background-color: colors.$bg-secondary;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  border-radius: 0;
+}

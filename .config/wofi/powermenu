@@ -1,0 +1,12 @@
+mode=dmenu
+monitor=DP-1
+
+prompt=
+cache_file=/dev/null
+
+width=10%
+height=196px
+
+content_halign=center
+
+hide_scroll=true

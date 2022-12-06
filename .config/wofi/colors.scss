@@ -1,0 +1,17 @@
+$bg-color: #1e1e2e;
+$bg-secondary: #313244;
+$border-color: #11111b;
+$sapphire: #74c7ec;
+$accent-color: $sapphire;
+
+@mixin baseWindow {
+  background-color: $bg-color;
+  font-family: 'Cantarell', 'FontAwesome 5 Pro';
+  border-top: none;
+}
+
+@mixin baseInput {
+  background-color: $bg-secondary;
+  border-radius: 0px;
+  border: 1px solid $accent-color;
+}
