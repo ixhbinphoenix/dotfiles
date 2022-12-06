@@ -8,6 +8,7 @@ return require('packer').startup(function()
         overrides = {
           extensions = {
             hx = "haxe",
+            astro = "astro"
           }
         },
       })
