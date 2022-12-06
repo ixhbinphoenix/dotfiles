@@ -1,6 +1,6 @@
 show=drun
 term=kitty
-monitor=DP-1
+layer=overlay
 
 prompt=
 

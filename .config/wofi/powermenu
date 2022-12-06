@@ -1,5 +1,5 @@
 mode=dmenu
-monitor=DP-1
+layer=overlay
 
 prompt=
 cache_file=/dev/null
