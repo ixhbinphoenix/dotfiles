@@ -60,8 +60,16 @@ parser_config.haxe = {
   },
   filetype = "haxe",
 }
+parser_config.nim = {
+  install_info = {
+    url = "https://github.com/aMOPel/tree-sitter-nim",
+    files = {"src/parser.c"},
+    branch = "main"
+  },
+  filetype = "nim"
+}
 
-local servers = { 'sumneko_lua', 'zls', 'vls', 'haxe_language_server', 'rust_analyzer', 'tsserver', 'astro', 'cssls', 'gradle_ls', 'html', 'jsonls', 'kotlin_language_server', 'volar', 'marksman', 'bashls', 'asm_lsp' }
+local servers = { 'sumneko_lua', 'gopls', 'zls', 'vls', 'haxe_language_server', 'rust_analyzer', 'tsserver', 'astro', 'cssls', 'gradle_ls', 'html', 'jsonls', 'kotlin_language_server', 'volar', 'marksman', 'bashls', 'asm_lsp' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
