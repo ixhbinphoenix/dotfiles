@@ -1,6 +1,15 @@
 -- Load this using require('plugins')
 
-return require('packer').startup(function()
+vim.cmd [[packadd packer.nvim]]
+
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = {
+      {'nvim-lua/plenary.nvim'}
+    }
+  }
   use {
     'nathom/filetype.nvim',
     config = function ()
@@ -14,25 +23,39 @@ return require('packer').startup(function()
       })
     end
   }
-  use 'wbthomason/packer.nvim'
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
     end
   }
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
   use {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'jose-elias-alvarez/null-ls.nvim',
-    'jayp0521/mason-null-ls.nvim',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip'
+    'nvim-treesitter/nvim-treesitter',
+    {run = ":TSUpdate"}
+  }
+  use 'nvim-treesitter/playground'
+  use 'theprimeagen/harpoon'
+  use 'mbbill/undotree'
+  use 'tpope/vim-fugitive'
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      {'saadparwaiz1/cmp_luasnip'},
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+    }
   }
   use 'wuelnerdotexe/vim-astro'
   use 'kyazdani42/nvim-web-devicons'
@@ -63,10 +86,4 @@ return require('packer').startup(function()
     end
   }
   use 'andweeb/presence.nvim'
-  use {
-    'rcarriga/nvim-notify',
-    config = function ()
-      vim.notify = require("notify")
-    end
-  }
 end)
