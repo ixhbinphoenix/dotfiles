@@ -1,5 +1,3 @@
-
-
 if [ $(git rev-parse --is-inside-work-tree 2> /dev/null) ]
 then
     onefetch 2>/dev/null
@@ -38,6 +36,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 ### Important globals
+export BAT_THEME="Catppuccin-mocha"
 export GPG_TTY=${tty}
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":"$WASMTIME_HOME/bin":$PATH
@@ -45,6 +44,9 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
 # opam is very weird. This is most probably very insecure
 eval $(opam env)
+
+# tea magic
+add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }
 
 ### Zinit plugins
 zinit ice depth"1"
@@ -64,7 +66,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit snippet 'https://raw.githubusercontent.com/catppuccin/zsh-syntax-highlighting/main/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh'
 
 ### Aliases
-alias ls="ls --color=auto -la"
+alias ls="lsd --color=auto -la"
 alias cat="bat"
 alias java11="/mnt/hdd/programs/jdk-11.0.14.1+1/bin/java"
 alias java16="/mnt/hdd/programs/jdk-16.0.1/bin/java"
