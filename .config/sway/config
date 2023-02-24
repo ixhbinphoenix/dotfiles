@@ -13,8 +13,9 @@ set $screen-center DP-1
 set $screen-right DP-3
 
 set $home /home/phoenix
-
-output "*" bg $home/Pictures/Ferris-ReZERO-Wallpapers-4.png fill
+set $wallpapers $home/Pictures/wallpapers
+set $wallpaper `find $wallpapers -type f | shuf -n 1`
+output * bg $wallpaper fill
 
 set $mod Mod1
 
