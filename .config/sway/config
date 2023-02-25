@@ -57,9 +57,9 @@ bindsym $mod+Return exec kitty
 # screenshot
 
 # Get this from https://gist.github.com/ixhbinphoenix/be9d8cbca952776dc3c6b99da974f526
-bindsym $mod+Shift+s exec $home/flameshot-wrapper
+bindsym $mod+Shift+s exec --no-startup-id $home/flameshot-wrapper
 
-bindsym $mod+Shift+f exec $home/flameshot-wrapper screen
+bindsym $mod+Shift+f exec --no-startup-id $home/flameshot-wrapper screen
 
 # Restart dunst (for config changes)
 bindsym $mod+Shift+d exec --no-startup-id bash $home/.config/dunst/reload.sh
