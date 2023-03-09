@@ -1,0 +1,32 @@
+
+(defpoll SONG :interval "1s" `scripts/playerctl-wrapper --title`)
+(defpoll ARTIST :interval "1s" `scripts/playerctl-wrapper --artist`)
+(defpoll ALBUM :interval "1s" `scripts/playerctl-wrapper --album`)
+(defpoll POSITION :interval "500ms" `scripts/playerctl-wrapper --position`)
+(defpoll STATUS :interval "100ms" `scripts/playerctl-wrapper --status`)
+(defpoll COVER :interval "1s" `scripts/playerctl-wrapper --cover`)
+
+(defwidget music []
+  (box :class "window" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false"
+       (box :class "music-cover" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+       (box :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+            (label :halign "center" :class "song" :wrap "true" :text SONG)
+            (label :halign "center" :class "artist" :wrap "true" :text ARTIST)
+            ; This bar is broken while using a player which does not give mpris:length
+            (box :class "music_bar" :halign "center" :vexpand "false" :hexpand "false"
+                 (scale :min 0 :active "true" :max 100 :value POSITION))
+            (box :orientation "h" :halign "center" :space-evenly "true" :vexpand "false" :hexpand "false"
+                 (button :class "btn_prev" :onclick "scripts/playerctl-wrapper --prev" "󰒮")
+                 (button :class "btn_play" :onclick "scripts/playerctl-wrapper --play-pause" { STATUS == "Playing" ? "" : ""})
+                 (button :class "btn_next" :onclick "scripts/playerctl-wrapper --next" "󰒭"))
+)))
+
+(defwindow music
+  :monitor 0
+  :geometry (geometry :x "14px"
+                      :y "14px"
+                      :width "360px"
+                      :height "560px"
+                      :anchor "top left")
+  :stacking "bottom"
+  (music))

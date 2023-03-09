@@ -43,6 +43,8 @@ exec export SSH_AUTH_SOCK
 
 bar swaybar_command waybar
 
+exec --no-startup-id eww open-many music 
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%

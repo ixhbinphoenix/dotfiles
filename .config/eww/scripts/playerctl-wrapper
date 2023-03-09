@@ -1,0 +1,124 @@
+#!/bin/bash
+#vim:ft=sh
+
+function is_spotify_active() {
+  if playerctl -l | grep -qw "spotify"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+function get_metadata() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" metadata "$1"
+  else
+    playerctl metadata "$1"
+  fi
+}
+
+function get_title() {
+  get_metadata "xesam:title"
+}
+
+function get_artist() {
+  get_metadata "xesam:artist"
+}
+
+function get_album() {
+  get_metadata "xesam:album"
+}
+
+function get_status() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" status
+  else
+    playerctl status
+  fi
+}
+
+function get_cover_url() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" metadata mpris:artUrl
+  else
+    playerctl metadata mpris:artUrl
+  fi
+}
+
+function get_cover() {
+  url=$(get_cover_url)
+  sha=$(echo "$(get_title)":"$url" | sha256sum)
+  filesha="$(cat /tmp/music-current-song-hash)"
+  if [[ $filesha == "$sha" ]]; then
+    echo "/tmp/music_cover.png"
+  else
+    rm /tmp/music_cover.png
+    rm /tmp/music-current-song-hash
+    echo "$sha" > /tmp/music-current-song-hash
+    curl -s "$url" --output /tmp/music_cover.png
+    echo "/tmp/music_cover.png"
+  fi
+}
+
+function get_position() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" position
+  else
+    playerctl position
+  fi
+}
+
+function get_position_percent() {
+  position=$(get_position)
+  if is_spotify_active ; then
+    length=$(playerctl -p "spotify" metadata mpris:length)
+    echo "scale=4;$position / ($length / 1000000.0) * 100" | bc
+  else
+    length=$(playerctl metadata mpris:length)
+    echo "scale=4;$position / ($length / 1000000.0) * 100" | bc
+  fi
+}
+
+function prev() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" previous
+  else
+    playerctl previous
+  fi
+}
+
+function play_pause() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" play-pause
+  else
+    playerctl play-pause
+  fi
+}
+
+function next() {
+  if is_spotify_active ; then
+    playerctl -p "spotify" next
+  else
+    playerctl next
+  fi
+}
+
+if [[ $1 == "--title" ]]; then
+  get_title
+elif [[ $1 == "--artist" ]]; then
+  get_artist
+elif [[ $1 == "--album" ]]; then
+  get_album
+elif [[ $1 == "--status" ]]; then
+  get_status
+elif [[ $1 == "--cover" ]]; then
+  get_cover
+elif [[ $1 == "--position" ]]; then
+  get_position_percent
+elif [[ $1 == "--prev" ]]; then
+  prev
+elif [[ $1 == "--play-pause" ]]; then
+  play_pause
+elif [[ $1 == "--next" ]]; then
+  next
+fi;

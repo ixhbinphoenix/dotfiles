@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
     }
   }
+  use 'elkowar/yuck.vim'
   use 'wuelnerdotexe/vim-astro'
   use 'kyazdani42/nvim-web-devicons'
   use {
