@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
     }
   }
+  use 'andweeb/presence.nvim'
   use 'elkowar/yuck.vim'
   use 'wuelnerdotexe/vim-astro'
   use 'kyazdani42/nvim-web-devicons'
