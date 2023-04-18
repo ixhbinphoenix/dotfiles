@@ -39,7 +39,7 @@ zinit light-mode for \
 export BAT_THEME="Catppuccin-mocha"
 export GPG_TTY=${tty}
 export WASMTIME_HOME="$HOME/.wasmtime"
-export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":"$WASMTIME_HOME/bin":$PATH
+export PATH="$HOME/dotfiles/scripts/":"$HOME/.cargo/bin/":"$HOME/.local/share/gem/ruby/3.0.0/bin/":"$HOME/.local/bin/":"$HOME/programs/gosumemory_linux_amd64/":"$WASMTIME_HOME/bin":$PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
 export CAPACITOR_ANDROID_STUDIO_PATH="/mnt/hdd/programs/android-studio/bin/studio.sh"
 # opam is very weird. This is most probably very insecure

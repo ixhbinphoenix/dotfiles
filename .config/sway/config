@@ -36,7 +36,6 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec_always --no-startup-id dunst
 # exec --no-startup-id picom -b
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
 
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
