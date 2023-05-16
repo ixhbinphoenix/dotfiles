@@ -15,7 +15,9 @@ set $screen-right DP-3
 set $home /home/phoenix
 set $wallpapers $home/Pictures/wallpapers
 set $wallpaper `find $wallpapers -type f | shuf -n 1`
-output * bg $wallpaper fill
+
+exec --no-startup-id swww init
+exec_always --no-startup-id $home/dotfiles/scripts/set_wallpaper.sh $wallpaper
 
 set $mod Mod1
 

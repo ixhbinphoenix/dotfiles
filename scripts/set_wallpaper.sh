@@ -1,9 +1,13 @@
 #!/bin/sh
 
+function set_wallpaper() {
+  swww img --transition-type top --transition-step 20 --transition-fps 60 $1
+}
+
 if [[ -f "$1" ]]; then
-  swaymsg "output \"*\" bg $1 fill"
+  set_wallpaper $1
 elif [[ -f "$HOME/Pictures/wallpapers/$1" ]]; then
-  swaymsg "output \"*\" bg $HOME/Pictures/wallpapers/$1 fill"
+  set_wallpaper "$HOME/Pictures/wallpapers/$1"
 else
   if [[ -f "$(which lsd)" ]]; then
     lsd -la $HOME/Pictures/wallpapers/
