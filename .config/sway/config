@@ -13,13 +13,18 @@ set $screen-center DP-1
 set $screen-right DP-3
 
 set $home /home/phoenix
+set $scripts /home/phoenix/dotfiles/scripts
+
+# Wallpapers
 set $wallpapers $home/Pictures/wallpapers
 set $wallpaper `find $wallpapers -type f | shuf -n 1`
 
 exec --no-startup-id swww init
-exec_always --no-startup-id $home/dotfiles/scripts/set_wallpaper.sh $wallpaper
+exec_always --no-startup-id $scripts/set_wallpaper.sh $wallpaper
 
 set $mod Mod1
+
+bindsym $mod+Shift+w exec $scripts/set_wallpaper.sh `find $wallpapers -type f | shuf -n 1`
 
 font pango:Source Code Pro 8
 
