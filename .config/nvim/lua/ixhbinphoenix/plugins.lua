@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end
   }
+  use 'christoomey/vim-tmux-navigator'
   use {
     'nvim-treesitter/nvim-treesitter',
     {run = ":TSUpdate"}

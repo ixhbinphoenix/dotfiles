@@ -68,7 +68,7 @@ lsp.on_attach(function (client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+  -- vim.keymap.set('n', '<C-S-K>', vim.lsp.buf.signature_help, opts) Breaks vim-tmux-navigator and i don't really know what it's used for
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<space>rf', vim.lsp.buf.references, opts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)

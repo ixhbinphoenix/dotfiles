@@ -1,5 +1,11 @@
 vim.keymap.set("n", "<C-s>", ":w<cr>")
 
+-- nvim-tmux-navigator
+vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>")
+
 -- Moved blocks in visual mode while also indenting
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gb=gb")
