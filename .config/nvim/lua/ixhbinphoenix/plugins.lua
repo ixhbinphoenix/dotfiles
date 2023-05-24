@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
       })
     end
   }
+  use 'rhaiscript/vim-rhai'
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
